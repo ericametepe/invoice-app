@@ -1,0 +1,103 @@
+<p> Add new invoice </p>
+<div name="myForm">
+  Model Data: {{invoice|json}}
+</div>
+<div>
+  <form #form="ngForm" novalidate (ngSubmit)="submitForm(form)" (reset)="resetForm()">
+
+    <div class="form-group">
+      <label for="customerNameId">Customer name : </label>
+      <input class="form-control form-control-sm" id="customerNameId" name="customerName" type="text"
+             [(ngModel)]="invoice.customerName" #customerName="ngModel" required/>
+    </div>
+
+    <div>
+      <div *ngIf="customerName.errors && (customerName.touched)|| (customerName.dirty)">
+        <div *ngIf="customerName.errors && customerName.errors.required">
+          Customer name is required
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="customerAddrId">Customer address </label>
+      <input  class="form-control form-control-sm" id="customerAddrId" name="customerAddr" type="text"
+             [(ngModel)]="invoice.customerAdress" #customerAddr="ngModel" required/>
+      <div>
+        <div *ngIf="customerAddr.errors && (customerAddr.touched)|| (customerAddr.dirty)">
+          <div *ngIf="customerName.errors && customerAddr.errors.required">
+            Customer Addr is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="customerVatId"> Customer VAT</label>
+      <input class="form-control-sm form-control" name="customerVat" id="customerVatId" type="text"
+             [(ngModel)]="invoice.customerVatnumber" #customerVat="ngModel" required/>
+      <div *ngIf="customerVat.errors && (customerVat.touched)|| (customerVat.dirty)">
+        <div *ngIf="customerVat.errors && customerVat.errors.required">
+          Customer VAT is required
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="monthId"> Month </label>
+      <input class="form-control form-control-sm " name="month" type="number" id="monthId"
+             [(ngModel)]="invoice.month" #month="ngModel" required/>
+
+      <div *ngIf="month.errors && (month.touched)|| (month.dirty)">
+        <div *ngIf="month.errors && month.errors.required">
+          Month is required
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="yearId"> Year : </label>
+
+      <input class="form-control form-control-sm" id="yearId" name="year" type="number"
+                      [(ngModel)]="invoice.year" #year="ngModel" required/>
+      <div>
+        <div *ngIf="year.errors && (year.touched)|| (year.dirty)">
+          <div *ngIf="year.errors && year.errors.required">
+            Month is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+    <label for="numeratorId"> Invoice numerator  </label>
+      <input class="form-control form-control-sm" name="numerator" type="text" placeholder="INVOICE-1-2-" id="numeratorId" required  [(ngModel)]="invoice.numerator"/>
+    </div>
+
+    <div class="form-group">
+    <label for="workeddaysId"> Number of worked days : </label>
+    <input class="form-control form-control-sm" name="workeddays" id="workeddaysId" required [(ngModel)]="invoice.workeddays"/>
+    </div>
+
+    <div class="form-group">
+      <label for="dailywageId"> Daily wage : </label>
+
+      <input class="form-control form-control-sm" id="dailywageId"  name="dailywage"  required [(ngModel)]="invoice.dailywage"/>
+    </div>
+
+    <div class="form-group">
+      <label for="customerId">Customer name : </label>
+      <input class="form-control form-control-sm" id="customerId" name="customer" type="text" required [(ngModel)]="invoice.customerName"/>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid"> Register</button>
+    <button class="btn btn-dark" type="reset" routerLink="/"> Cancel</button>
+
+    <div *ngIf="form.dirty && form.invalid">
+    </div>
+
+  </form>

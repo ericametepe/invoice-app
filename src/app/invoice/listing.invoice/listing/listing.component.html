@@ -1,0 +1,35 @@
+
+<div name="listing" *ngIf="invoices.length >0">
+
+  <table class="table table-hover">
+    <tr>
+      <th>Invoice identification</th>
+      <th>customer</th>
+      <th>Quantity of worked days</th>
+      <th>Daily wage</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let inv of invoices">
+      <td>{{inv.numerator}}, {{inv.month | date}}, {{inv.year}}</td>
+      <td>{{inv.customerName}}</td>
+      <td>{{inv.workeddays}}</td>
+      <td>{{inv.dailywage}}</td>
+      <td>{{inv.workeddays*inv.dailywage | currency:'€'}}</td>
+      <td>
+        <a  routerLink="/"  (click)="displayPDF(inv.id)" >Preview</a>
+        <a routerLink="invoices/mail">Mail</a>
+        <a  *ngIf="updatable(inv.id)" routerLink="invoices/register" (click)="edit(inv.id)">Edit</a>
+        <a  *ngIf="updatable(inv.id)" routerLink="invoices/register" (click)="duplicate(inv.id)">Duplicate</a>
+        <a  *ngIf="updatable(inv.id)"  routerLink="/" (click)="delete(inv.id)">Delete</a>
+      </td>
+    </tr>
+  </table>
+
+  <div name="addInv">
+    <button class="btn btn-primary" routerLink="/invoices/register"> Add new Invoice</button>
+  </div>
+
+</div>
+
+

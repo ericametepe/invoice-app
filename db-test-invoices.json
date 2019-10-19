@@ -1,0 +1,55 @@
+{
+  "invoices": [
+    {
+      "customer": "string",
+      "dailywage": 0,
+      "id": "string",
+      "month": 0,
+      "numerator": "string",
+      "price": 0,
+      "workeddays": 0
+    },
+    {
+      "customer": "string",
+      "dailywage": 0,
+      "id": "string",
+      "month": 0,
+      "numerator": "string",
+      "price": 0,
+      "workeddays": 0
+    },
+    {
+      "customer": "string",
+      "dailywage": 0,
+      "id": "string",
+      "month": 0,
+      "numerator": "string",
+      "price": 0,
+      "workeddays": 0
+    },
+    {
+      "numerator": "INV123",
+      "month": 2,
+      "workeddays": 8,
+      "dailywage": 2,
+      "customer": "Yawo",
+      "id": "z0g2KcW"
+    },
+    {
+      "numerator": "INV123",
+      "month": 2,
+      "workeddays": 8,
+      "dailywage": 2,
+      "customer": "Yawo",
+      "id": "stUNrKh"
+    },
+    {
+      "numerator": "INV123",
+      "month": 2,
+      "workeddays": 8,
+      "dailywage": 2,
+      "customer": "Yawo",
+      "id": "LndmTbX"
+    }
+  ]
+}
